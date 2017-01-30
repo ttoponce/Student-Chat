@@ -30,7 +30,12 @@ public class Group {
 
 		public Group () {
 			int randIndex = randomStudent.nextInt(studentList.size());
-			studentGroup = studentList.get(randIndex);
+			do {
+				student1 = studentList.get(randIndex);
+				student2 = studentList.get(randIndex);
+				studentGroup.add(student1);
+				studentGroup.add(student2);
+			} while (student1.hashCode() != student2.hashCode());
 		}
 		
 		public static ArrayList<Student> setStudentList() {
