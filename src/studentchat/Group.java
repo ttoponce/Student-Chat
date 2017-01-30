@@ -21,12 +21,16 @@ public class Group {
 		private static Student S7 = new Student("Rizwan", "Mohammed", 100, Student.getResponses());
 		private static Student S8 = new Student("Lauren", "Ribeiro", 100, Student.getResponses());
 		private static Student S9 = new Student("Tyler", "Toponce", 100, Student.getResponses());
+		private static Student student1;
+		private static Student student2;
 	
 		static ArrayList<Student> studentList = new ArrayList<>();
-		static Random randomStudent;
+		static Random randomStudent = new Random();
+		static ArrayList<Student> studentGroup = new ArrayList<>();
 
-		public Group (ArrayList<Student> studentGroup) {
-			studentGroup = studentList.get(index);
+		public Group () {
+			int randIndex = randomStudent.nextInt(studentList.size());
+			studentGroup = studentList.get(randIndex);
 		}
 		
 		public static ArrayList<Student> setStudentList() {
