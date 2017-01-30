@@ -9,4 +9,7 @@ package studentchat;
  */
 public class Group {
 
+		public Group (Student student1, Student student2) {
+			
+		}
 }

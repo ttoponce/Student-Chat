@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class Student {
 	
-	private String fName;
-	private String lName;
-	private int score;
-	ArrayList<String> chat = new ArrayList<>();
+	private static String fName;
+	private static String lName;
+	private static int score;
+	static ArrayList<String> chat = new ArrayList<>();
 	
 	/**
 	 * Student object.
@@ -28,7 +28,27 @@ public class Student {
 		lName = lastName;
 		score = studentScore;
 		chat = chatResponses;
-
+		chat.add("Hi.");
+		chat.add("Hello.");
+		chat.add("I love my family.");
+		chat.add("I like Disneyland.");
+		chat.add("Disneyland is fun, but even more fun with your family!");
+	}
+	
+	public static String getFirstName() {
+		return fName;
+	}
+	
+	public static String getLastName() {
+		return lName;
+	}
+	
+	public static int getScore() {
+		return score;
+	}
+	
+	public static ArrayList<String> getResponses() {
+		return chat;
 	}
 	
 	public static void main(String[] args) {
