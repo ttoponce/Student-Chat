@@ -4,6 +4,7 @@
 package studentchat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -29,15 +30,13 @@ public class Group {
 		static ArrayList<Student> studentGroup = new ArrayList<>();
 
 		public Group () {
-			int randIndex = randomStudent.nextInt(studentList.size());
-			do {
-				student1 = studentList.get(randIndex);
-				student2 = studentList.get(randIndex);
-				studentGroup.add(student1);
-				studentGroup.add(student2);
-			} while (student1.hashCode() != student2.hashCode());
+			
 		}
 		
+		/**
+		 * Create ArrayList of Students using Student objects previously defined.
+		 * @return ArrayList of Students.
+		 */
 		public static ArrayList<Student> setStudentList() {
 			studentList.add(S1);
 			studentList.add(S2);
@@ -51,8 +50,40 @@ public class Group {
 			return studentList;
 		}
 		
-		public static Student Group1() {
-			ArrayList<Student> studentGroup = new ArrayList<>();
-			
+		/**
+		 * Create student group of two students using Student objects
+		 * @return
+		 */
+		public static ArrayList<Student> Group1() {
+			int randIndex1 = randomStudent.nextInt(studentList.size());
+			int randIndex2 = randomStudent.nextInt(studentList.size());
+			student1 = studentList.get(randIndex1);
+			student2 = studentList.get(randIndex2);
+			// while loop first makes sure that the two randomly selected students aren't the same
+			// student from the collection and the interior if/else sorts the two students
+			// lexicographically by student's last name
+			while (studentGroup.isEmpty()) {
+				if (student1.hashCode() != student2.hashCode()) {
+					if ((student1.getLastName().compareTo(student2.getLastName())) < 0) {
+						studentGroup.add(student1);
+						studentGroup.add(student2);
+					} else {
+						studentGroup.add(student2);
+						studentGroup.add(student1);
+					}
+				} else {
+					int randIndexTemp = randomStudent.nextInt(studentList.size());
+					student2 = studentList.get(randIndexTemp);
+					studentGroup.add(student1);
+					studentGroup.add(student2);
+				}
+			}
+			return studentGroup;
+		}
+		
+		public static void main(String[] args) {
+			for (Student student : studentGroup) {
+				System.out.println(student);
+			}
 		}
 }

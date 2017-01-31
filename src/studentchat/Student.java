@@ -35,15 +35,15 @@ public class Student {
 		chat.add("Disneyland is fun, but even more fun with your family!");
 	}
 	
-	public static String getFirstName() {
+	public String getFirstName() {
 		return fName;
 	}
 	
-	public static String getLastName() {
+	public String getLastName() {
 		return lName;
 	}
 	
-	public static int getScore() {
+	public int getScore() {
 		return score;
 	}
 	
