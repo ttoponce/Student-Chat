@@ -12,7 +12,7 @@ public class Student {
 	private static String fName;
 	private static String lName;
 	private static int score;
-	String[] chat = new String[5];
+	static String[] chat = new String[5];
 	
 	/**
 	 * Student object.
@@ -26,6 +26,15 @@ public class Student {
 		lName = lastName;
 		score = studentScore;
 		chat = chatResponses;
+	}
+	
+	public static String[] getResponses() {
+		chat[0] = "Hi";
+		chat[1] = "Hello";
+		chat[2] = "I love my family.";
+		chat[3] = "I like Disneyland.";
+		chat[4] = "Disneyland is fun, but even more fun with your family!";
+		return chat;
 	}
 	
 	public String getFirstName() {

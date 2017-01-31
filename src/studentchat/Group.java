@@ -11,15 +11,15 @@ import java.util.ArrayList;
  */
 public class Group {
 	
-		private static Student S1 = new Student("Nathan", "Borup", 100, getResponses());
-		private static Student S2 = new Student("Ethan", "Brown", 100, getResponses());
-		private static Student S3 = new Student("Michael", "Cullimore", 100, getResponses());
-		private static Student S4 = new Student("Kendra", "Koester", 100, getResponses());
-		private static Student S5 = new Student("Cody", "May", 100, getResponses());
-		private static Student S6 = new Student("Brieanna", "Miller", 100, getResponses());
-		private static Student S7 = new Student("Rizwan", "Mohammed", 100, getResponses());
-		private static Student S8 = new Student("Lauren", "Ribeiro", 100, getResponses());
-		private static Student S9 = new Student("Tyler", "Toponce", 100, getResponses());
+		private static Student S1 = new Student("Nathan", "Borup", 100, StudentChat.getResponses());
+		private static Student S2 = new Student("Ethan", "Brown", 100, StudentChat.getResponses());
+		private static Student S3 = new Student("Michael", "Cullimore", 100, StudentChat.getResponses());
+		private static Student S4 = new Student("Kendra", "Koester", 100, StudentChat.getResponses());
+		private static Student S5 = new Student("Cody", "May", 100, StudentChat.getResponses());
+		private static Student S6 = new Student("Brieanna", "Miller", 100, StudentChat.getResponses());
+		private static Student S7 = new Student("Rizwan", "Mohammed", 100, StudentChat.getResponses());
+		private static Student S8 = new Student("Lauren", "Ribeiro", 100, StudentChat.getResponses());
+		private static Student S9 = new Student("Tyler", "Toponce", 100, StudentChat.getResponses());
 		private static String[] chat = new String[5];
 		static ArrayList<Student> studentList1 = new ArrayList<>();
 		static ArrayList<Student> studentList2 = new ArrayList<>();
@@ -33,15 +33,6 @@ public class Group {
 //			ArrayList<Student> sList3 = studentList1;
 //			ArrayList<Student> sList4 = studentList1;
 //			ArrayList<Student> sList5 = studentList1;
-		}
-		
-		public static String[] getResponses() {
-			chat[0] = "Hi";
-			chat[1] = "Hello";
-			chat[2] = "I love my family.";
-			chat[3] = "I like Disneyland.";
-			chat[4] = "Disneyland is fun, but even more fun with your family!";
-			return chat;
 		}
 		
 		/**
