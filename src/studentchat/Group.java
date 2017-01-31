@@ -4,7 +4,6 @@
 package studentchat;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * @author Tyler Toponce
@@ -12,18 +11,28 @@ import java.util.Random;
  */
 public class Group {
 	
-		private static Student S1 = new Student("Nathan", "Borup", 100, Student.getResponses());
-		private static Student S2 = new Student("Ethan", "Brown", 100, Student.getResponses());
-		private static Student S3 = new Student("Michael", "Cullimore", 100, Student.getResponses());
-		private static Student S4 = new Student("Kendra", "Koester", 100, Student.getResponses());
-		private static Student S5 = new Student("Cody", "May", 100, Student.getResponses());
-		private static Student S6 = new Student("Brieanna", "Miller", 100, Student.getResponses());
-		private static Student S7 = new Student("Rizwan", "Mohammed", 100, Student.getResponses());
-		private static Student S8 = new Student("Lauren", "Ribeiro", 100, Student.getResponses());
-		private static Student S9 = new Student("Tyler", "Toponce", 100, Student.getResponses());
+		private static Student S1 = new Student("Nathan", "Borup", 100, getResponses());
+		private static Student S2 = new Student("Ethan", "Brown", 100, getResponses());
+		private static Student S3 = new Student("Michael", "Cullimore", 100, getResponses());
+		private static Student S4 = new Student("Kendra", "Koester", 100, getResponses());
+		private static Student S5 = new Student("Cody", "May", 100, getResponses());
+		private static Student S6 = new Student("Brieanna", "Miller", 100, getResponses());
+		private static Student S7 = new Student("Rizwan", "Mohammed", 100, getResponses());
+		private static Student S8 = new Student("Lauren", "Ribeiro", 100, getResponses());
+		private static Student S9 = new Student("Tyler", "Toponce", 100, getResponses());
+		private static String[] chat = new String[5];
 
 		public Group () {
 			
+		}
+		
+		public static String[] getResponses() {
+			chat[0] = "Hi";
+			chat[1] = "Hello";
+			chat[2] = "I love my family.";
+			chat[3] = "I like Disneyland.";
+			chat[4] = "Disneyland is fun, but even more fun with your family!";
+			return chat;
 		}
 		
 		/**

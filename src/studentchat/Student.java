@@ -3,8 +3,6 @@
  */
 package studentchat;
 
-import java.util.ArrayList;
-
 /**
  * @author Tyler Toponce
  * Initializes Student object.
@@ -14,7 +12,7 @@ public class Student {
 	private static String fName;
 	private static String lName;
 	private static int score;
-	String[] chat;
+	String[] chat = new String[5];
 	
 	/**
 	 * Student object.
@@ -40,15 +38,6 @@ public class Student {
 	
 	public int getScore() {
 		return score;
-	}
-	
-	public String[] getResponses() {
-		chat.add("Hi.");
-		chat.add("Hello.");
-		chat.add("I love my family.");
-		chat.add("I like Disneyland.");
-		chat.add("Disneyland is fun, but even more fun with your family!");
-		return chat;
 	}
 	
 	public static void main(String[] args) {
