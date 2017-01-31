@@ -21,14 +21,18 @@ public class Group {
 		private static Student S8 = new Student("Lauren", "Ribeiro", 100, getResponses());
 		private static Student S9 = new Student("Tyler", "Toponce", 100, getResponses());
 		private static String[] chat = new String[5];
-		ArrayList<Student> studentList1 = new ArrayList<>();
-		ArrayList<Student> studentList2 = new ArrayList<>();
-		ArrayList<Student> studentList3 = new ArrayList<>();
-		ArrayList<Student> studentList4 = new ArrayList<>();
-		ArrayList<Student> studentList5 = new ArrayList<>();
+		static ArrayList<Student> studentList1 = new ArrayList<>();
+		static ArrayList<Student> studentList2 = new ArrayList<>();
+		static ArrayList<Student> studentList3 = new ArrayList<>();
+		static ArrayList<Student> studentList4 = new ArrayList<>();
+		static ArrayList<Student> studentList5 = new ArrayList<>();
 
-		public Group () {
-			
+		public Group (ArrayList<Student> studentList1, ArrayList<Student> studentList2, ArrayList<Student> studentList3, ArrayList<Student> studentList4, ArrayList<Student> studentList5) {
+//			ArrayList<Student> sList1 = studentList1;
+//			ArrayList<Student> sList2 = studentList1;
+//			ArrayList<Student> sList3 = studentList1;
+//			ArrayList<Student> sList4 = studentList1;
+//			ArrayList<Student> sList5 = studentList1;
 		}
 		
 		public static String[] getResponses() {
@@ -44,7 +48,7 @@ public class Group {
 		 * Create student group of two students using Student objects
 		 * @return
 		 */
-		public ArrayList<Student> Group1() {
+		public static ArrayList<Student> Group1() {
 			studentList1.add(S1);
 			studentList1.add(S2);
 			return studentList1;
@@ -54,7 +58,7 @@ public class Group {
 		 * Create student group of two students using Student objects
 		 * @return
 		 */
-		public ArrayList<Student> Group2() {
+		public static ArrayList<Student> Group2() {
 			ArrayList<Student> studentList2 = new ArrayList<>();
 			studentList2.add(S3);
 			studentList2.add(S4);
@@ -65,7 +69,7 @@ public class Group {
 		 * Create student group of two students using Student objects
 		 * @return
 		 */
-		public ArrayList<Student> Group3() {
+		public static ArrayList<Student> Group3() {
 			ArrayList<Student> studentList3 = new ArrayList<>();
 			studentList3.add(S5);
 			studentList3.add(S6);
@@ -76,7 +80,7 @@ public class Group {
 		 * Create student group of two students using Student objects
 		 * @return
 		 */
-		public ArrayList<Student> Group4() {
+		public static ArrayList<Student> Group4() {
 			ArrayList<Student> studentList4 = new ArrayList<>();
 			studentList4.add(S7);
 			studentList4.add(S8);
@@ -87,7 +91,7 @@ public class Group {
 		 * Create student group of two students using Student objects
 		 * @return
 		 */
-		public ArrayList<Student> Group5() {
+		public static ArrayList<Student> Group5() {
 			ArrayList<Student> studentList5 = new ArrayList<>();
 			studentList5.add(S8);
 			studentList5.add(S9);
