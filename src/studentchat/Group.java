@@ -21,12 +21,6 @@ public class Group {
 		private static Student S7 = new Student("Rizwan", "Mohammed", 100, Student.getResponses());
 		private static Student S8 = new Student("Lauren", "Ribeiro", 100, Student.getResponses());
 		private static Student S9 = new Student("Tyler", "Toponce", 100, Student.getResponses());
-		private static Student student1;
-		private static Student student2;
-	
-		static ArrayList<Student> studentList = new ArrayList<>();
-		static Random randomStudent = new Random();
-		static ArrayList<Student> studentGroup = new ArrayList<>();
 
 		public Group () {
 			
@@ -37,47 +31,53 @@ public class Group {
 		 * @return
 		 */
 		public static ArrayList<Student> Group1() {
-			
-			studentList.add(S1);
-			studentList.add(S2);
-			studentList.add(S3);
-			studentList.add(S4);
-			studentList.add(S5);
-			studentList.add(S6);
-			studentList.add(S7);
-			studentList.add(S8);
-			studentList.add(S9);
-			
-			int randIndex1 = randomStudent.nextInt(studentList.size());
-			int randIndex2 = randomStudent.nextInt(studentList.size());
-			student1 = studentList.get(randIndex1);
-			student2 = studentList.get(randIndex2);
-			
-			// while loop first makes sure that the two randomly selected students aren't the same
-			// student from the collection and the interior if/else sorts the two students
-			// lexicographically by student's last name
-			while (studentGroup.isEmpty()) {
-				if (student1.hashCode() != student2.hashCode()) {
-					if ((student1.getLastName().compareTo(student2.getLastName())) < 0) {
-						studentGroup.add(student1);
-						studentGroup.add(student2);
-					} else {
-						studentGroup.add(student2);
-						studentGroup.add(student1);
-					}
-				} else {
-					int randIndexTemp = randomStudent.nextInt(studentList.size());
-					student2 = studentList.get(randIndexTemp);
-					studentGroup.add(student1);
-					studentGroup.add(student2);
-				}
-			}
-			return studentGroup;
+			ArrayList<Student> studentList1 = new ArrayList<>();
+			studentList1.add(S1);
+			studentList1.add(S2);
+		return studentList1;
 		}
 		
-		public static void main(String[] args) {
-			for (Student student : studentGroup) {
-				System.out.println(student);
-			}
+		/**
+		 * Create student group of two students using Student objects
+		 * @return
+		 */
+		public static ArrayList<Student> Group2() {
+			ArrayList<Student> studentList2 = new ArrayList<>();
+			studentList2.add(S3);
+			studentList2.add(S4);
+		return studentList2;
+		}
+		
+		/**
+		 * Create student group of two students using Student objects
+		 * @return
+		 */
+		public static ArrayList<Student> Group3() {
+			ArrayList<Student> studentList3 = new ArrayList<>();
+			studentList3.add(S5);
+			studentList3.add(S6);
+		return studentList3;
+		}
+		
+		/**
+		 * Create student group of two students using Student objects
+		 * @return
+		 */
+		public static ArrayList<Student> Group4() {
+			ArrayList<Student> studentList4 = new ArrayList<>();
+			studentList4.add(S7);
+			studentList4.add(S8);
+		return studentList4;
+		}
+		
+		/**
+		 * Create student group of two students using Student objects
+		 * @return
+		 */
+		public static ArrayList<Student> Group5() {
+			ArrayList<Student> studentList5 = new ArrayList<>();
+			studentList5.add(S8);
+			studentList5.add(S9);
+		return studentList5;
 		}
 }

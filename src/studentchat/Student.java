@@ -14,7 +14,7 @@ public class Student {
 	private static String fName;
 	private static String lName;
 	private static int score;
-	static ArrayList<String> chat = new ArrayList<>();
+	String[] chat;
 	
 	/**
 	 * Student object.
@@ -22,17 +22,12 @@ public class Student {
 	 * @param lastName Student last name.
 	 * @param studentScore Student score.
 	 */
-	public Student (String firstName, String lastName, int studentScore, ArrayList<String> chatResponses) {
+	public Student (String firstName, String lastName, int studentScore, String[] chatResponses) {
 		
 		fName = firstName;
 		lName = lastName;
 		score = studentScore;
 		chat = chatResponses;
-		chat.add("Hi.");
-		chat.add("Hello.");
-		chat.add("I love my family.");
-		chat.add("I like Disneyland.");
-		chat.add("Disneyland is fun, but even more fun with your family!");
 	}
 	
 	public String getFirstName() {
@@ -47,7 +42,12 @@ public class Student {
 		return score;
 	}
 	
-	public static ArrayList<String> getResponses() {
+	public String[] getResponses() {
+		chat.add("Hi.");
+		chat.add("Hello.");
+		chat.add("I love my family.");
+		chat.add("I like Disneyland.");
+		chat.add("Disneyland is fun, but even more fun with your family!");
 		return chat;
 	}
 	

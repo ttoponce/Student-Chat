@@ -15,19 +15,16 @@ public class StudentChat {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ArrayList<Student> groupList = new ArrayList<>(Group.Group1());
-		ArrayList<String> chat = Student.getResponses();
+		ArrayList<String> chat = getResponses();
+		
 		String chat1 = chat.get(0);
 		String chat2 = chat.get(1);
 		String chat3 = chat.get(2);
 		String chat4 = chat.get(3);
 		String chat5 = chat.get(4);
 		
-		Student student1 = groupList.get(0);
-		Student student2 = groupList.get(1);
-		
-		System.out.println(student1.getFirstName() + " " + student1.getLastName() + ":" + chat1);
-		System.out.println(student2.getFirstName() + " " + student2.getLastName() + ":" + chat2);
+		System.out.println(Group.Group1().get(0).getFirstName() + " " + Group.Group1().get(0).getLastName() + ": " + chat1);
+		System.out.println(Group.Group1().get(1).getFirstName() + " " + Group.Group1().get(1).getLastName() + ": " + chat1);
 	}
 
 }
