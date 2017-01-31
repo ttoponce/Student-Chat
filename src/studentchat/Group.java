@@ -33,10 +33,11 @@ public class Group {
 		}
 		
 		/**
-		 * Create ArrayList of Students using Student objects previously defined.
-		 * @return ArrayList of Students.
+		 * Create student group of two students using Student objects
+		 * @return
 		 */
-		public static ArrayList<Student> setStudentList() {
+		public static ArrayList<Student> Group1() {
+			
 			studentList.add(S1);
 			studentList.add(S2);
 			studentList.add(S3);
@@ -46,18 +47,12 @@ public class Group {
 			studentList.add(S7);
 			studentList.add(S8);
 			studentList.add(S9);
-			return studentList;
-		}
-		
-		/**
-		 * Create student group of two students using Student objects
-		 * @return
-		 */
-		public static ArrayList<Student> Group1() {
+			
 			int randIndex1 = randomStudent.nextInt(studentList.size());
 			int randIndex2 = randomStudent.nextInt(studentList.size());
 			student1 = studentList.get(randIndex1);
 			student2 = studentList.get(randIndex2);
+			
 			// while loop first makes sure that the two randomly selected students aren't the same
 			// student from the collection and the interior if/else sorts the two students
 			// lexicographically by student's last name
