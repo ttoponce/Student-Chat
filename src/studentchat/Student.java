@@ -39,8 +39,4 @@ public class Student {
 	public int getScore() {
 		return score;
 	}
-	
-	public static void main(String[] args) {
-		
-	}
 }
