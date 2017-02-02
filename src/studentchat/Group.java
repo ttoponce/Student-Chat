@@ -20,7 +20,6 @@ public class Group {
 		private static Student S7 = new Student("Rizwan", "Mohammed", 100, StudentChat.getResponses());
 		private static Student S8 = new Student("Lauren", "Ribeiro", 100, StudentChat.getResponses());
 		private static Student S9 = new Student("Tyler", "Toponce", 100, StudentChat.getResponses());
-		private static String[] chat = new String[5];
 		static ArrayList<Student> studentList1 = new ArrayList<>();
 		static ArrayList<Student> studentList2 = new ArrayList<>();
 		static ArrayList<Student> studentList3 = new ArrayList<>();
@@ -28,11 +27,7 @@ public class Group {
 		static ArrayList<Student> studentList5 = new ArrayList<>();
 
 		public Group (ArrayList<Student> studentList1, ArrayList<Student> studentList2, ArrayList<Student> studentList3, ArrayList<Student> studentList4, ArrayList<Student> studentList5) {
-//			ArrayList<Student> sList1 = studentList1;
-//			ArrayList<Student> sList2 = studentList1;
-//			ArrayList<Student> sList3 = studentList1;
-//			ArrayList<Student> sList4 = studentList1;
-//			ArrayList<Student> sList5 = studentList1;
+
 		}
 		
 		/**
