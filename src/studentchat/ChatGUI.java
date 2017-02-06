@@ -13,14 +13,19 @@ public class ChatGUI {
 		mainChatWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainChatWindow.setTitle("Student Chat");
 		
-		mainContainer
+		mainContentPane(mainChatWindow.getContentPane());
 		
 		mainChatWindow.pack();
+		mainChatWindow.setSize(350, 700);
 		mainChatWindow.setVisible(true);
 	}
 	
 	private static void mainContentPane(Container mainContainer) {
 		mainContainer.setLayout(new BoxLayout(mainContainer, BoxLayout.Y_AXIS));
+		
+		addTextArea(mainContainer);
+		addTextField(mainContainer);
+		addButtons("Send", mainContainer);
 	}
 	
 	private static void addButtons(String title, Container buttonContainer) {
@@ -36,16 +41,18 @@ public class ChatGUI {
 	}
 	
 	private static void addTextArea(Container textContainer) {
-		JTextArea chatArea = new JTextArea(3, 0);
+		JTextArea chatArea = new JTextArea(0, 0);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
+		chatArea.setEditable(false);
+		chatArea.setLineWrap(true);
 		textContainer.add(chatArea);
 	}
 	
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-		public void run() {
-			chatGUI();
-		}
+			public void run() {
+				chatGUI();
+			}
 		});
 	}
 }
