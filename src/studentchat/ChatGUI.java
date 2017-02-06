@@ -41,11 +41,17 @@ public class ChatGUI {
 	}
 	
 	private static void addTextArea(Container textContainer) {
+		JFrame chatFrame = new JFrame();
 		JTextArea chatArea = new JTextArea(0, 0);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatArea.setEditable(false);
 		chatArea.setLineWrap(true);
-		textContainer.add(chatArea);
+		chatFrame.add(chatArea);
+		
+		JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatFrame.add(scrollPane);
+		
+		textContainer.add(chatFrame);
 	}
 	
 	public static void main(String[] args) {
