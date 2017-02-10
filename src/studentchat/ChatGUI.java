@@ -2,10 +2,14 @@ package studentchat;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
 public class ChatGUI {
+	
+	private static final String TEXT_SUBMIT = "text-submit";
+	private static final String INSERT_BREAK = "insert-break";
 	
 	private static void chatGUI() {
 		
@@ -37,6 +41,11 @@ public class ChatGUI {
 	private static void addTextField(Container textContainer) {
 		JTextField chatBox = new JTextField(0);
 		chatBox.setAlignmentX(Component.CENTER_ALIGNMENT);
+		InputMap input = chatBox.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		KeyStroke enter = KeyStroke.getKeyStroke("ENTER");
+		KeyStroke ctrlEnter = KeyStroke.getKeyStroke("control ENTER");
+		input.put(enter, INSERT_BREAK);
+		input.put(ctrlEnter, TEXT_SUBMIT);
 		textContainer.add(chatBox);
 	}
 	
