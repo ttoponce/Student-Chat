@@ -41,17 +41,16 @@ public class ChatGUI {
 	}
 	
 	private static void addTextArea(Container textContainer) {
-		JFrame chatFrame = new JFrame();
-		JTextArea chatArea = new JTextArea(0, 0);
+		JTextArea chatArea = new JTextArea(200, 0);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatArea.setEditable(false);
 		chatArea.setLineWrap(true);
-		chatFrame.add(chatArea);
-		
+		textContainer.add(chatArea);
 		JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		chatFrame.add(scrollPane);
-		
-		textContainer.add(chatFrame);
+		InputMap keyInput = scrollPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		keyInput.put(KeyStroke.getKeyStroke("UP"), "negativeUnitIncrement");
+		keyInput.put(KeyStroke.getKeyStroke("DOWN"), "positiveUnitIncrement");
+		textContainer.add(scrollPane);
 	}
 	
 	public static void main(String[] args) {
