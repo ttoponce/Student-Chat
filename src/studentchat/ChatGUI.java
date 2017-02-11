@@ -1,11 +1,12 @@
 package studentchat;
 
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class ChatGUI {
 	
@@ -17,17 +18,20 @@ public class ChatGUI {
 		JPanel mainPanel = new JPanel();
 		BoxLayout windowLayout = new BoxLayout(mainPanel, BoxLayout.Y_AXIS);
 		mainPanel.setLayout(windowLayout);
+		mainPanel.setBorder(new EmptyBorder(new Insets(2, 2, 2, 2)));
 		
 		JTextArea chatArea = new JTextArea(200, 35);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatArea.setEditable(false);
 		chatArea.setLineWrap(true);
+		chatArea.setFont(new Font("Sans-Serif", Font.PLAIN, 12));
+		JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		JTextField chatBox = new JTextField();
 		chatBox.setAlignmentX(Component.CENTER_ALIGNMENT);
 		JButton chatButton = new JButton("Send");
 		chatButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		mainPanel.add(chatArea);
+		mainPanel.add(scrollPane);
 		mainPanel.add(chatBox);
 		mainPanel.add(chatButton);
 		
