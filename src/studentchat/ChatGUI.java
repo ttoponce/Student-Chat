@@ -32,7 +32,7 @@ public class ChatGUI {
 		chatArea.setLineWrap(true);
 		chatArea.setFont(new Font("Sans-Serif", Font.PLAIN, 12));
 		JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		JTextArea chatBox = new JTextArea(0, 35);
+		JTextArea chatBox = new JTextArea(4, 35);
 		chatBox.setAlignmentX(Component.CENTER_ALIGNMENT);
 		Border chatBorder = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1);
 		chatBox.setBorder(chatBorder);
