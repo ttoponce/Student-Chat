@@ -10,7 +10,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-
 public class ChatGUI {
 	
 	private static final String TEXT_SUBMIT = "text-submit";
