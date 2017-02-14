@@ -1,12 +1,5 @@
-/**
- * 
- */
 package studentchat;
 
-/**
- * @author Tyler Toponce
- * Initializes Student object.
- */
 public class Student {
 	
 	private static String fName;
@@ -14,12 +7,6 @@ public class Student {
 	private static int score;
 	static String[] chat = new String[5];
 	
-	/**
-	 * Student object.
-	 * @param firstName Student first name.
-	 * @param lastName Student last name.
-	 * @param studentScore Student score.
-	 */
 	public Student (String firstName, String lastName, int studentScore, String[] chatResponses) {
 		
 		fName = firstName;
