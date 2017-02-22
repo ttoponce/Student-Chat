@@ -40,6 +40,10 @@ public class Group {
 		studentGroup5.add(S9);
 	}
 	
+	public int compare(Student student1, Student student2) {
+		return student1.getFirstName().compareTo(student2.getFirstName());
+	}
+	
 	public static TreeSet<Student> getStudentGroup1() {
 		return studentGroup1;
 	}
