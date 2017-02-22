@@ -2,9 +2,9 @@ package studentchat;
 
 public class Student {
 	
-	private static String fName;
-	private static String lName;
-	private static int score;
+	private String fName;
+	private String lName;
+	private int score;
 	static String[] chat = new String[5];
 	
 	public Student (String firstName, String lastName, int studentScore, String[] chatResponses) {
@@ -16,6 +16,7 @@ public class Student {
 	}
 	
 	public static String[] getResponses() {
+		
 		chat[0] = "Hi";
 		chat[1] = "Hello";
 		chat[2] = "I love my family.";
