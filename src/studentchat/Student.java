@@ -9,10 +9,10 @@ public class Student {
 	
 	public Student (String firstName, String lastName, int studentScore, String[] chatResponses) {
 		
-		fName = firstName;
-		lName = lastName;
-		score = studentScore;
-		chat = chatResponses;
+		this.fName = firstName;
+		this.lName = lastName;
+		this.score = studentScore;
+		this.chat = chatResponses;
 	}
 	
 	public static String[] getResponses() {
@@ -25,12 +25,24 @@ public class Student {
 		return chat;
 	}
 	
+	public void setFirstName(String fName) {
+		this.fName = fName;
+	}
+	
 	public String getFirstName() {
 		return fName;
 	}
 	
+	public void setLastName(String lName) {
+		this.lName = lName;
+	}
+	
 	public String getLastName() {
 		return lName;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 	public int getScore() {
