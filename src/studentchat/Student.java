@@ -12,7 +12,7 @@ public class Student {
 		this.fName = firstName;
 		this.lName = lastName;
 		this.score = studentScore;
-		this.chat = chatResponses;
+		chat = chatResponses;
 	}
 	
 	public static String[] getResponses() {

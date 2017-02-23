@@ -1,6 +1,16 @@
 package studentchat;
 
 public class StudentChat {
+	
+	private Student S1 = new Student("Brieanna", "Miller", 100, Student.getResponses());
+	private Student S2 = new Student("Cody", "May", 100, Student.getResponses());
+	private Student S3 = new Student("Ethan", "Brown", 100, Student.getResponses());
+	private Student S4 = new Student("Kendra", "Koester", 100, Student.getResponses());
+	private Student S5 = new Student("Lauren", "Ribeiro", 100, Student.getResponses());
+	private Student S6 = new Student("Michael", "Cullimore", 100, Student.getResponses());
+	private Student S7 = new Student("Nathan", "Borup", 100, Student.getResponses());
+	private Student S8 = new Student("Rizwan", "Mohammed", 100, Student.getResponses());
+	private Student S9 = new Student("Tyler", "Toponce", 100, Student.getResponses());
 
 	public static void main(String[] args) {
 		
