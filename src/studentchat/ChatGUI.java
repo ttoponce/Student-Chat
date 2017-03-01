@@ -25,11 +25,12 @@ public class ChatGUI {
 		mainPanel.setLayout(windowLayout);
 		mainPanel.setBorder(new EmptyBorder(new Insets(2, 2, 2, 2)));
 		
-		JTextArea chatArea = new JTextArea(200, 35);
+		JTextArea chatArea = new JTextArea(10, 35);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatArea.setEditable(false);
 		chatArea.setLineWrap(true);
 		chatArea.setFont(new Font("Sans-Serif", Font.PLAIN, 12));
+		//chatArea.setText(t);
 		JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		JTextArea chatBox = new JTextArea(4, 35);
