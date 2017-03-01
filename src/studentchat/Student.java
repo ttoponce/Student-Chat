@@ -1,6 +1,6 @@
 package studentchat;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	
 	private String fName;
 	private String lName;
@@ -47,5 +47,10 @@ public class Student {
 	
 	public int getScore() {
 		return score;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		return this.getFirstName().compareTo(o.getFirstName());
 	}
 }
