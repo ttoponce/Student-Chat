@@ -23,8 +23,31 @@ public class ServerHandler implements Runnable {
 	public void run() {
 		try {
 			input = socket.getInputStream();
-			getOutput();
-			while (())
+			output = socket.getOutputStream();
+			while ((input.read() >= 0)) {
+				try {
+					output.write(random.nextInt());
+					output.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						input.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					try {
+						output.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					try {
+						socket.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
 		} catch(IOException e) {
 			Logger log = Logger.getAnonymousLogger();
 			log.log(Level.SEVERE, "An IOException was thrown", e);
