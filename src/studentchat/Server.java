@@ -2,6 +2,7 @@ package studentchat;
 
 import java.net.Socket;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 
 public class Server implements Runnable {
@@ -9,6 +10,7 @@ public class Server implements Runnable {
 	private int serverPort = 8090;
 	private ServerSocket ss;
 	private Socket s;
+	private String server_IP;
 
 	public Socket getSocket() {
 		return s;
@@ -22,6 +24,12 @@ public class Server implements Runnable {
 	public void run() {
 		
 		while(ss.isBound() && (ss.isClosed() == false)) {
+			try {
+				InetAddress iAddress = InetAddress.getLocalHost();
+				setServer_IP(iAddress.getHostAddress());
+			} catch (java.net.UnknownHostException e) {
+				e.printStackTrace();
+			}
 			try {
 				ss = new ServerSocket(serverPort);
 				setSocket(ss.accept());
@@ -49,6 +57,14 @@ public class Server implements Runnable {
 
 	public static void main(String[] args) {
 		new Server();
+	}
+
+	public String getServer_IP() {
+		return server_IP;
+	}
+
+	public void setServer_IP(String server_IP) {
+		this.server_IP = server_IP;
 	}
 
 }

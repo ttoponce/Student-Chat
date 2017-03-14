@@ -15,7 +15,7 @@ public class ServerHandler implements Runnable {
 	private OutputStream output;
 	private Random random = new Random();
 
-	public ServerHandler(Socket s) {
+	public ServerHandler(Socket s) throws IOException {
 		this.socket = s;
 	}
 	
