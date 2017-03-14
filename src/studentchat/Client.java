@@ -46,7 +46,7 @@ public class Client extends JFrame {
 		JPanel panel = new JPanel();
 		panel.add(new JLabel("Click this button"));
 
-		Socket s = new Socket("localhost", 8080);
+		Socket s = new Socket("localhost", 8090);
 		new Thread(new Reader(s.getInputStream())).start();
 		
 		button = new JButton("Some text");
@@ -147,8 +147,7 @@ public class Client extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		new Client();
 	}
 
 }
