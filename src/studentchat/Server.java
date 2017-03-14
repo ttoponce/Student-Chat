@@ -9,9 +9,6 @@ public class Server implements Runnable {
 	private int serverPort = 8090;
 	private ServerSocket ss;
 	private Socket s;
-	
-	public Server() {
-	}
 
 	public Socket getSocket() {
 		return s;
