@@ -6,7 +6,11 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
 import java.net.UnknownHostException;
 
 import javax.swing.AbstractAction;
@@ -16,6 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -27,6 +32,7 @@ public class Client extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String TEXT_SUBMIT = "text-submit";
+	private JButton button;
 	
 	public Client() {
 		try {
@@ -37,6 +43,35 @@ public class Client extends JFrame {
 	}
 	
 	public void initialize() throws UnknownHostException, IOException {
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("Click this button"));
+
+		Socket s = new Socket("localhost", 8080);
+		new Thread(new Reader(s.getInputStream())).start();
+		
+		button = new JButton("Some text");
+		button.addActionListener((e) -> {
+			try {
+				s.getOutputStream().write(1);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		});
+		
+		panel.add(button);
+
+		add(panel);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				try {
+					s.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JFrame mainChatWindow = new JFrame("Student Chat");
@@ -90,6 +125,25 @@ public class Client extends JFrame {
 		mainChatWindow.add(mainPanel);
 		mainChatWindow.pack();
 		mainChatWindow.setVisible(true);
+	}
+	
+	private class Reader implements Runnable {
+		private InputStream input;
+		
+		public Reader(InputStream is) {
+			input = is;
+		}
+		
+		public void run() {
+			int read;
+			try {
+				while ((read = input.read()) >= 0) {
+					button.setText(read + "");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public static void main(String[] args) {
