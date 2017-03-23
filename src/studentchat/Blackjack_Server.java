@@ -1,8 +1,12 @@
 package studentchat;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import blackjack.message.MessageFactory;
 
 public class Blackjack_Server implements Runnable {
 	
@@ -32,16 +36,29 @@ public class Blackjack_Server implements Runnable {
 		while(serverSocket.isBound() && (serverSocket.isClosed() == false)) {
 			try {
 				InetAddress address = InetAddress.getByName("137.190.250.174");
-				setServerIP(address.getHostName());
+				Socket echoSocket = new Socket(address, serverPort);
+				setSocket(echoSocket);
+				PrintWriter output = new PrintWriter(echoSocket.getOutputStream(), true);
 			} catch (java.net.UnknownHostException e) {
-				System.out.println("Unable to establish server connection with IP " + this.serverIP + ".");
+				System.out.println(e.toString());
+			} catch (IOException e) {
+				System.out.println(e.toString());
 			}
 			try {
 				serverSocket = new ServerSocket(serverPort);
 				setSocket(serverSocket.accept());
+				MessageFactory.getAckMessage();
+			} catch (IOException e) {
+				MessageFactory.getDenyMessage();
+				System.out.println(e.toString());
 			}
 		}
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "Unable to establish server connection with IP: " + this.serverIP + " and with port: " + this.serverPort + ".";
 	}
 
 	public static void main(String[] args) {
