@@ -1,10 +1,6 @@
 package studentchat;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,15 +11,12 @@ public class Blackjack_Server implements Runnable {
 	
 	private int serverPort = 8989;
 	private ServerSocket serverSocket;
+	@SuppressWarnings("unused")
 	private Socket socket;
 	private String serverIP;
 	
 	private void setSocket(Socket s) {
 		this.socket = s;
-	}
-	
-	private Socket getSocket() {
-		return this.socket;
 	}
 	
 	public void setServerIP(String server_IP) {
@@ -48,13 +41,8 @@ public class Blackjack_Server implements Runnable {
 				setSocket(serverSocket.accept());
 				Socket echoSocket = new Socket(serverIP, serverPort);
 				setSocket(echoSocket);
-				OutputStream os = echoSocket.getOutputStream();
-				os.flush();
-				PrintWriter outputWriter = new PrintWriter(os, true);
-				outputWriter.println(MessageFactory.getAckMessage());
-				InputStreamReader isr = new InputStreamReader(socket.getInputStream());
-				BufferedReader reader = new BufferedReader(isr);
-				String string = reader.readLine();
+				BlackJack_ServerHandler sh = new BlackJack_ServerHandler(echoSocket);
+				new Thread(sh).start();
 			} catch (IOException e) {
 				System.out.println(MessageFactory.getDenyMessage());
 				System.out.println(e.toString());
