@@ -8,6 +8,8 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import blackjack.message.MessageFactory;
+
 public class BlackJack_ServerHandler implements Runnable {
 	
 	private Socket socket;
@@ -28,8 +30,10 @@ public class BlackJack_ServerHandler implements Runnable {
 				try {
 					output.write(random.nextInt());
 					output.flush();
+					System.out.println(MessageFactory.getAckMessage());
 				} catch (IOException e) {
 					e.printStackTrace();
+					System.out.println(MessageFactory.getDenyMessage());
 				} finally {
 					try {
 						input.close();

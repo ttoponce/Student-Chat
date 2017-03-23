@@ -5,8 +5,6 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import blackjack.message.MessageFactory;
-
 public class Blackjack_Server implements Runnable {
 	
 	private int serverPort = 8989;
@@ -34,7 +32,7 @@ public class Blackjack_Server implements Runnable {
 				InetAddress address = InetAddress.getByName("137.190.250.174");
 				setServerIP(address.getHostName());
 			} catch (java.net.UnknownHostException e) {
-				System.out.println(e.toString());
+				System.out.println("Unable to establish server connection with IP: " + serverIP + ".");
 			}
 			try {
 				serverSocket = new ServerSocket(serverPort);
@@ -44,16 +42,10 @@ public class Blackjack_Server implements Runnable {
 				BlackJack_ServerHandler sh = new BlackJack_ServerHandler(echoSocket);
 				new Thread(sh).start();
 			} catch (IOException e) {
-				System.out.println(MessageFactory.getDenyMessage());
-				System.out.println(e.toString());
+				System.out.println("Unable to listen on port: " + serverPort + ".");
 			}
 		}
 		
-	}
-	
-	@Override
-	public String toString() {
-		return "Unable to establish server connection with IP: " + this.serverIP + " and with port: " + this.serverPort + ".";
 	}
 
 	public static void main(String[] args) {
