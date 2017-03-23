@@ -1,20 +1,20 @@
 package studentchat;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import blackjack.message.MessageFactory;
 
 public class BlackJack_ServerHandler implements Runnable {
 	
 	private Socket socket;
-	private InputStream input;
+	private InputStreamReader input;
 	private OutputStream output;
+	private PrintWriter writer;
 	private Random random = new Random();
 
 	public BlackJack_ServerHandler(Socket s) throws IOException {
@@ -24,16 +24,16 @@ public class BlackJack_ServerHandler implements Runnable {
 	@Override
 	public void run() {
 		try {
-			input = socket.getInputStream();
 			output = socket.getOutputStream();
+			writer = new PrintWriter(output, true);
+			input = new InputStreamReader(socket.getInputStream());
+			writer.println(MessageFactory.getAckMessage());
 			while ((input.read() >= 0)) {
 				try {
 					output.write(random.nextInt());
 					output.flush();
-					System.out.println(MessageFactory.getAckMessage());
 				} catch (IOException e) {
 					e.printStackTrace();
-					System.out.println(MessageFactory.getDenyMessage());
 				} finally {
 					try {
 						input.close();
@@ -53,8 +53,8 @@ public class BlackJack_ServerHandler implements Runnable {
 				}
 			}
 		} catch(IOException e) {
-			Logger log = Logger.getAnonymousLogger();
-			log.log(Level.SEVERE, "An IOException was thrown", e);
+			writer = new PrintWriter(output, true);
+			writer.println(MessageFactory.getDenyMessage());
 		}
 	}
 
