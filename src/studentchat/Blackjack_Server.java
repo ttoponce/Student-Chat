@@ -1,9 +1,16 @@
 package studentchat;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import blackjack.message.MessageFactory;
 
 public class Blackjack_Server implements Runnable {
 	
@@ -49,7 +56,20 @@ public class Blackjack_Server implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		new Blackjack_Server();
+		//new Blackjack_Server();
+		try {
+			InetAddress addr = InetAddress.getByName("137.190.250.174");
+			Socket socket = new Socket(addr, 8989);
+			System.out.println("Connected to " + addr);
+			System.out.println(MessageFactory.getAckMessage());
+			ObjectOutputStream os = new ObjectOutputStream();
+			os.writeObject(MessageFactory.getLoginMessage("Ty"));// look up using ObjectOutputStream and ObjectInputStream;
+			os.flush();
+			ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
+			socket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
