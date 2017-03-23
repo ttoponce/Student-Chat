@@ -36,17 +36,16 @@ public class Blackjack_Server implements Runnable {
 		while(serverSocket.isBound() && (serverSocket.isClosed() == false)) {
 			try {
 				InetAddress address = InetAddress.getByName("137.190.250.174");
-				Socket echoSocket = new Socket(address, serverPort);
-				setSocket(echoSocket);
-				PrintWriter output = new PrintWriter(echoSocket.getOutputStream(), true);
+				setServerIP(address.getHostName());
 			} catch (java.net.UnknownHostException e) {
-				System.out.println(e.toString());
-			} catch (IOException e) {
 				System.out.println(e.toString());
 			}
 			try {
 				serverSocket = new ServerSocket(serverPort);
 				setSocket(serverSocket.accept());
+				Socket echoSocket = new Socket(serverIP, serverPort);
+				setSocket(echoSocket);
+				PrintWriter output = new PrintWriter(echoSocket.getOutputStream(), true);
 				MessageFactory.getAckMessage();
 			} catch (IOException e) {
 				MessageFactory.getDenyMessage();
