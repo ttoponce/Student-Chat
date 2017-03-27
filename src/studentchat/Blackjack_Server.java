@@ -1,5 +1,7 @@
 package studentchat;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
@@ -62,10 +64,11 @@ public class Blackjack_Server implements Runnable {
 			Socket socket = new Socket(addr, 8989);
 			System.out.println("Connected to " + addr);
 			System.out.println(MessageFactory.getAckMessage());
-			ObjectOutputStream os = new ObjectOutputStream();
-			os.writeObject(MessageFactory.getLoginMessage("Ty"));// look up using ObjectOutputStream and ObjectInputStream;
+			FileOutputStream file = new FileOutputStream("test.txt");
+			ObjectOutputStream os = new ObjectOutputStream(file);
+			os.writeObject(MessageFactory.getLoginMessage("Ty"));
 			os.flush();
-			ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
+			ObjectInputStream reader = new ObjectInputStream(new FileInputStream("test.txt"));
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
