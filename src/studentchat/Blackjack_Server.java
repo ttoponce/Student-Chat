@@ -18,6 +18,7 @@ public class Blackjack_Server implements Runnable {
 	@SuppressWarnings("unused")
 	private Socket socket;
 	private String serverIP;
+	private static String myName = "Ty";
 	
 	private void setSocket(Socket s) {
 		this.socket = s;
@@ -34,22 +35,22 @@ public class Blackjack_Server implements Runnable {
 	@Override
 	public void run() {
 		while(serverSocket.isBound() && (serverSocket.isClosed() == false)) {
-			try {
-				InetAddress address = InetAddress.getByName("137.190.250.174");
-				setServerIP(address.getHostName());
-			} catch (java.net.UnknownHostException e) {
-				System.out.println("Unable to establish server connection with IP: " + serverIP + ".");
-			}
-			try {
-				serverSocket = new ServerSocket(serverPort);
-				setSocket(serverSocket.accept());
-				Socket echoSocket = new Socket(serverIP, serverPort);
-				setSocket(echoSocket);
-				BlackJack_ServerHandler sh = new BlackJack_ServerHandler(echoSocket);
-				new Thread(sh).start();
-			} catch (IOException e) {
-				System.out.println("Unable to listen on port: " + serverPort + ".");
-			}
+//			try {
+//				InetAddress address = InetAddress.getByName("137.190.250.174");
+//				setServerIP(address.getHostName());
+//			} catch (java.net.UnknownHostException e) {
+//				System.out.println("Unable to establish server connection with IP: " + serverIP + ".");
+//			}
+//			try {
+//				serverSocket = new ServerSocket(serverPort);
+//				setSocket(serverSocket.accept());
+//				Socket echoSocket = new Socket(serverIP, serverPort);
+//				setSocket(echoSocket);
+//				BlackJack_ServerHandler sh = new BlackJack_ServerHandler(echoSocket);
+//				new Thread(sh).start();
+//			} catch (IOException e) {
+//				System.out.println("Unable to listen on port: " + serverPort + ".");
+//			}
 		}
 		
 	}
@@ -61,12 +62,11 @@ public class Blackjack_Server implements Runnable {
 			Socket socket = new Socket(addr, 8989);
 			System.out.println("Connected to " + addr);
 			System.out.println(MessageFactory.getAckMessage());
-			FileOutputStream file = new FileOutputStream("test.txt");
-			ObjectOutputStream os = new ObjectOutputStream(file);
-			os.writeObject(MessageFactory.getLoginMessage("Ty"));
+			ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+			os.writeObject(MessageFactory.getLoginMessage(myName));
 			os.flush();
 			os.close();
-			ObjectInputStream reader = new ObjectInputStream(new FileInputStream("test.txt"));
+			ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
 			System.out.println(reader);
 			socket.close();
 		} catch (IOException e) {
