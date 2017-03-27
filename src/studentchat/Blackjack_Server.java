@@ -3,11 +3,8 @@ package studentchat;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -68,7 +65,9 @@ public class Blackjack_Server implements Runnable {
 			ObjectOutputStream os = new ObjectOutputStream(file);
 			os.writeObject(MessageFactory.getLoginMessage("Ty"));
 			os.flush();
+			os.close();
 			ObjectInputStream reader = new ObjectInputStream(new FileInputStream("test.txt"));
+			System.out.println(reader);
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
