@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 public class ChatGUI {
 	
 	private static final String TEXT_SUBMIT = "text-submit";
+	JTextArea chatArea = new JTextArea(10, 35);
 	
 	public ChatGUI(String server, int port) {
 	
@@ -25,7 +26,6 @@ public class ChatGUI {
 		mainPanel.setLayout(windowLayout);
 		mainPanel.setBorder(new EmptyBorder(new Insets(2, 2, 2, 2)));
 		
-		JTextArea chatArea = new JTextArea(10, 35);
 		chatArea.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatArea.setEditable(false);
 		chatArea.setLineWrap(true);
@@ -70,6 +70,11 @@ public class ChatGUI {
 		mainChatWindow.pack();
 		mainChatWindow.setVisible(true);
 		
+	}
+	
+	public void addText(String str) {
+		chatArea.append(str);
+		chatArea.setCaretPosition(chatArea.getText().length() - 1);
 	}
 	
 	public static void main(String[] args) {
