@@ -38,13 +38,12 @@ public class ChatClient {
 		try {
 			line = reader.readLine();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		
+		new ChatClient("52.35.72.251", 8989, "Ty", new ChatGUI("52.35.72.251", 8989));
 
 	}
 
