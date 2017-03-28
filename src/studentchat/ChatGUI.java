@@ -14,8 +14,8 @@ public class ChatGUI {
 	
 	private static final String TEXT_SUBMIT = "text-submit";
 	
-	@SuppressWarnings("serial")
-	public static void main(String[] args) {
+	public ChatGUI(String server, int port) {
+	
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JFrame mainChatWindow = new JFrame("Student Chat");
 		mainChatWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,13 +42,16 @@ public class ChatGUI {
 		input.put(controlEnter, TEXT_SUBMIT);
 		ActionMap actions = chatBox.getActionMap();
 		actions.put(TEXT_SUBMIT, new AbstractAction(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				chatArea.append(chatBox.getText() + "\n");
-				chatBox.setText("");
-			}
-		});
 		
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			chatArea.append(chatBox.getText() + "\n");
+			chatBox.setText("");
+		}
+	});
+	
 		JButton chatButton = new JButton("Send");
 		chatButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		chatButton.addActionListener(new ActionListener(){
@@ -57,7 +60,7 @@ public class ChatGUI {
 				chatArea.append(chatBox.getText() + "\n");
 				chatBox.setText("");
 			}
-		});
+	});
 
 		mainPanel.add(scrollPane);
 		mainPanel.add(chatBox);
@@ -66,5 +69,10 @@ public class ChatGUI {
 		mainChatWindow.add(mainPanel);
 		mainChatWindow.pack();
 		mainChatWindow.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new ChatGUI("52.35.72.251", Blackjack_Server.getPort());
 	}
 }

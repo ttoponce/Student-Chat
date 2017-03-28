@@ -15,6 +15,10 @@ public class Blackjack_Server implements Runnable {
 	@SuppressWarnings("unused")
 	private Socket socket;
 	private static String myName = "Ty";
+	
+	public static int getPort() {
+		return serverPort;
+	}
 
 	@Override
 	public void run() {
