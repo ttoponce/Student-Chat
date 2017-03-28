@@ -42,6 +42,7 @@ public class Blackjack_Server implements Runnable {
 				reader.close();
 				socket.close();
 			} catch (IOException e) {
+				System.out.println(MessageFactory.getDenyMessage());
 				e.printStackTrace();
 			}
 	}
